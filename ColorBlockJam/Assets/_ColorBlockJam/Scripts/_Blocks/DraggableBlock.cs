@@ -20,8 +20,15 @@ namespace _ColorBlockJam.Scripts._Blocks
         private Vector3 _startPosition, _currentPosition, _offset;
         private RaycastHit _hit;
         private Tween _tween;
+        private Vector3 _lastValidPosition;
+        [SerializeField] private LayerMask blockLayerMask;
+        private BoxCollider _collider;
         private Camera Cam => Camera.main;
 
+        private void Awake()
+        {
+            _collider = GetComponent<BoxCollider>();
+        }
 
         private void Start()
         {
@@ -30,15 +37,29 @@ namespace _ColorBlockJam.Scripts._Blocks
 
         private void OnMouseDown()
         {
+            _lastValidPosition = transform.position;
             _offset = transform.position - MouseWorldPosition();
         }
 
         private void OnMouseDrag()
         {
-            var position = MouseWorldPosition() + _offset;
-            position = new Vector3(Mathf.Clamp(position.x, xClampMin, xClampMax), .1f,
-                Mathf.Clamp(position.z, zClampMin, zClampMax));
-            transform.position = position;
+            Vector3 wantedPos = MouseWorldPosition() + _offset;
+            wantedPos = new Vector3(
+                Mathf.Clamp(wantedPos.x, xClampMin, xClampMax),
+                .1f,
+                Mathf.Clamp(wantedPos.z, zClampMin, zClampMax)
+            );
+
+            transform.position = wantedPos;
+
+            if (IsCollidingWithOtherBlock())
+            {
+                transform.position = _lastValidPosition;
+            }
+            else
+            {
+                _lastValidPosition = wantedPos;
+            }
         }
         
         private void OnMouseUp()
@@ -67,6 +88,27 @@ namespace _ColorBlockJam.Scripts._Blocks
                 _tween?.Kill();
                 _tween = transform.DOMove(_startPosition, 0.3f);
             }
+        }
+        
+        private bool IsCollidingWithOtherBlock()
+        {
+            Vector3 boxCenter = _collider.bounds.center;
+            Vector3 boxExtents = _collider.bounds.extents;
+
+            Collider[] hits = Physics.OverlapBox(
+                boxCenter,
+                boxExtents,
+                transform.rotation,
+                blockLayerMask
+            );
+
+            foreach (var hit in hits)
+            {
+                if (hit.gameObject != gameObject)
+                    return true;
+            }
+
+            return false;
         }
         
         private Vector3 MouseWorldPosition()

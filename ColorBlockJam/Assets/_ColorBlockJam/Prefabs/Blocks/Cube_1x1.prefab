@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 222842901143080613}
   - component: {fileID: 3660045637545964150}
   - component: {fileID: -5739687086778728960}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube_1x1
   m_TagString: Block
   m_Icon: {fileID: 0}
@@ -101,12 +101,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.0000001, z: 1.0000001}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.94965726, y: 1.0000001, z: 0.9562548}
+  m_Center: {x: 0.00033914045, y: 0, z: -0.0013779233}
 --- !u!114 &3660045637545964150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,10 +119,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80a42c11cd114d7bac7948ed33c1a152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gridManager: {fileID: 0}
   xClampMin: 0
   xClampMax: 5.5
   zClampMin: 0
   zClampMax: 5.5
+  blockWidth: 1
+  blockHeight: 1
+  blockLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!54 &-5739687086778728960
 Rigidbody:
   m_ObjectHideFlags: 0

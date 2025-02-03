@@ -132,16 +132,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 619150938161565785, guid: ae7fdf2b038004108bce2664d2755988,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.0710455
-      objectReference: {fileID: 0}
-    - target: {fileID: 619150938161565785, guid: ae7fdf2b038004108bce2664d2755988,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.0802672
-      objectReference: {fileID: 0}
-    - target: {fileID: 619150938161565785, guid: ae7fdf2b038004108bce2664d2755988,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.2814
       objectReference: {fileID: 0}
@@ -190,28 +180,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2141661858544442000, guid: ae7fdf2b038004108bce2664d2755988,
+        type: 3}
+      propertyPath: gridManager
+      value: 
+      objectReference: {fileID: 1820553967}
     - target: {fileID: 3070348574255800522, guid: ae7fdf2b038004108bce2664d2755988,
         type: 3}
       propertyPath: m_Name
       value: Cube_3x3
       objectReference: {fileID: 0}
-    - target: {fileID: 7105928677872253673, guid: ae7fdf2b038004108bce2664d2755988,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: b0709a66bc9144bca96c7655297cbb5c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3070348574255800522, guid: ae7fdf2b038004108bce2664d2755988,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 68080389}
-    - targetCorrespondingSourceObject: {fileID: 3070348574255800522, guid: ae7fdf2b038004108bce2664d2755988,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 68080390}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae7fdf2b038004108bce2664d2755988, type: 3}
 --- !u!4 &68080387 stripped
 Transform:
@@ -219,58 +201,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 68080386}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &68080388 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3070348574255800522, guid: ae7fdf2b038004108bce2664d2755988,
-    type: 3}
-  m_PrefabInstance: {fileID: 68080386}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &68080389
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 68080388}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
---- !u!114 &68080390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 68080388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80a42c11cd114d7bac7948ed33c1a152, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xClampMin: 0
-  xClampMax: 10
-  zClampMin: 0
-  zClampMax: 10
-  gridManager: {fileID: 1820553967}
-  blockWidth: 3
-  blockHeight: 3
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1326,10 +1256,30 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 126
       objectReference: {fileID: 0}
+    - target: {fileID: -5319284994385407527, guid: e1884f85e759a42c9af1203066e07713,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5319284994385407527, guid: e1884f85e759a42c9af1203066e07713,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133382803210855499, guid: e1884f85e759a42c9af1203066e07713,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4227928049601163884, guid: e1884f85e759a42c9af1203066e07713,
         type: 3}
       propertyPath: m_Name
       value: Cube_2x2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4227928049601163884, guid: e1884f85e759a42c9af1203066e07713,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7140577182980912847, guid: e1884f85e759a42c9af1203066e07713,
         type: 3}
@@ -1396,6 +1346,11 @@ PrefabInstance:
       propertyPath: gridManager
       value: 
       objectReference: {fileID: 1820553967}
+    - target: {fileID: 8086303158324383439, guid: e1884f85e759a42c9af1203066e07713,
+        type: 3}
+      propertyPath: blockLayerMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1420,15 +1375,40 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 126
       objectReference: {fileID: 0}
+    - target: {fileID: -5739687086778728960, guid: b15c18f80e6274d4b8056bd650639554,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5739687086778728960, guid: b15c18f80e6274d4b8056bd650639554,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 222842901143080613, guid: b15c18f80e6274d4b8056bd650639554,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3660045637545964150, guid: b15c18f80e6274d4b8056bd650639554,
         type: 3}
       propertyPath: gridManager
       value: 
       objectReference: {fileID: 1820553967}
+    - target: {fileID: 3660045637545964150, guid: b15c18f80e6274d4b8056bd650639554,
+        type: 3}
+      propertyPath: blockLayerMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 5467683008920326180, guid: b15c18f80e6274d4b8056bd650639554,
         type: 3}
       propertyPath: m_Name
       value: Cube_1x1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467683008920326180, guid: b15c18f80e6274d4b8056bd650639554,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8549183234606698903, guid: b15c18f80e6274d4b8056bd650639554,
         type: 3}

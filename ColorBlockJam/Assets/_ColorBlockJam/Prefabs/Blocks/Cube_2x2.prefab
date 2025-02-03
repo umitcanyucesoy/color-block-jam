@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5500495390939546846}
   - component: {fileID: 7633874538156252109}
   - component: {fileID: 3133382803210855499}
+  - component: {fileID: 7863627873010883891}
   - component: {fileID: 8086303158324383439}
   - component: {fileID: -5319284994385407527}
   m_Layer: 0
@@ -101,12 +102,33 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 1.0000002, z: 2}
-  m_Center: {x: -0.49999997, y: 0.000000029802322, z: -0.49999997}
+  m_Size: {x: 1.9620862, y: 1.0000002, z: 0.9834492}
+  m_Center: {x: -0.5024152, y: 0, z: -0.011940817}
+--- !u!65 &7863627873010883891
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4227928049601163884}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.97435117, y: 1.0000002, z: 1.9644315}
+  m_Center: {x: -0.009044808, y: 0, z: -0.49761948}
 --- !u!114 &8086303158324383439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,10 +141,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80a42c11cd114d7bac7948ed33c1a152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gridManager: {fileID: 0}
   xClampMin: 1
   xClampMax: 5.5
   zClampMin: 1
   zClampMax: 5.6
+  blockWidth: 1
+  blockHeight: 1
+  blockLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!54 &-5319284994385407527
 Rigidbody:
   m_ObjectHideFlags: 0
