@@ -36,7 +36,7 @@ namespace _ColorBlockJam.Scripts._Blocks
         private void OnMouseDrag()
         {
             var position = MouseWorldPosition() + _offset;
-            position = new Vector3(Mathf.Clamp(position.x, xClampMin, xClampMax), 1f,
+            position = new Vector3(Mathf.Clamp(position.x, xClampMin, xClampMax), .1f,
                 Mathf.Clamp(position.z, zClampMin, zClampMax));
             transform.position = position;
         }
