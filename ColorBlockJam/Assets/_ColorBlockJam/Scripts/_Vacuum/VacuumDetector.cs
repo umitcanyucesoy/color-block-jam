@@ -15,6 +15,7 @@ namespace _ColorBlockJam.Scripts._Vacuum
             if (block.blockColor == parentVacuum.vacuumColor)
             {
                 block.ShrinkAndDestroyZ();
+                parentVacuum.VacuumPushAnimation();
             }
         }
 }
