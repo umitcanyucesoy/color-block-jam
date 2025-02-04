@@ -21,6 +21,10 @@ namespace _ColorBlockJam.Scripts._Blocks
         [SerializeField] private int blockWidth = 1;
         [Tooltip("Height of the block on the grid (in tiles)")]
         [SerializeField] private int blockHeight = 1;
+
+        [Header("----- Block Shrink Animation -----")] 
+        [SerializeField] private float duration;
+        [SerializeField] private float moveForward;
         
         private Vector3 _startPosition, _currentPosition, _offset;
         private Vector3 _lastValidPosition;
@@ -129,8 +133,7 @@ namespace _ColorBlockJam.Scripts._Blocks
                 col.enabled = false;
             }
             
-            float duration = 2f;
-            float forwardMove = 2f;
+            
             Transform modelTransform = modelHolder.transform; 
 
             var seq = DOTween.Sequence();
@@ -141,7 +144,7 @@ namespace _ColorBlockJam.Scripts._Blocks
             );
 
             seq.Join(
-                modelTransform.DOLocalMoveZ(modelTransform.localPosition.z + forwardMove, 2f)
+                modelTransform.DOLocalMoveZ(modelTransform.localPosition.z + moveForward, 2f)
                     .SetEase(Ease.InOutQuad)
             );
 

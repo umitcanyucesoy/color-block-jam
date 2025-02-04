@@ -173,8 +173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80a42c11cd114d7bac7948ed33c1a152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blockColor: 2
   gridManager: {fileID: 0}
+  modelHolder: {fileID: 0}
   blockLayerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -182,7 +182,7 @@ MonoBehaviour:
   xClampMax: 5.5
   zClampMin: 1
   zClampMax: 5.6
-  ModelHolder: {fileID: 6684603934323656211}
+  blockColor: 2
   blockWidth: 1
   blockHeight: 1
 --- !u!54 &-5319284994385407527
