@@ -1,6 +1,8 @@
 using System;
+using _ColorBlockJam.Scripts._Enums;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _ColorBlockJam.Scripts._Blocks
 {
@@ -8,8 +10,11 @@ namespace _ColorBlockJam.Scripts._Blocks
     {
         [Header("----- Drag Settings & Elements ------")]
         [SerializeField] private GridManager gridManager;
+        [SerializeField] private Transform modelHolder;
+        [SerializeField] private LayerMask blockLayerMask;
         [SerializeField] private float xClampMin, xClampMax;
         [SerializeField] private float zClampMin, zClampMax;
+        public BlockColor blockColor;
         
         [Header("----- Block Grid Dimensions ------")]
         [Tooltip("Width of the block on the grid (in tiles)")]
@@ -18,16 +23,15 @@ namespace _ColorBlockJam.Scripts._Blocks
         [SerializeField] private int blockHeight = 1;
         
         private Vector3 _startPosition, _currentPosition, _offset;
+        private Vector3 _lastValidPosition;
         private RaycastHit _hit;
         private Tween _tween;
-        private Vector3 _lastValidPosition;
-        [SerializeField] private LayerMask blockLayerMask;
-        private BoxCollider _collider;
+        private BoxCollider[] _colliders;
         private Camera Cam => Camera.main;
 
         private void Awake()
         {
-            _collider = GetComponent<BoxCollider>();
+            _colliders = GetComponents<BoxCollider>();
         }
 
         private void Start()
@@ -81,7 +85,10 @@ namespace _ColorBlockJam.Scripts._Blocks
 
 
                 _tween?.Kill();
-                _tween = transform.DOMove(targetPos, 0.3f).SetEase(Ease.OutQuad);
+                _tween = transform.DOMove(targetPos, 0.3f).SetEase(Ease.OutQuad).OnComplete(() =>
+                {
+                    
+                });
             }
             else
             {
@@ -92,23 +99,53 @@ namespace _ColorBlockJam.Scripts._Blocks
         
         private bool IsCollidingWithOtherBlock()
         {
-            Vector3 boxCenter = _collider.bounds.center;
-            Vector3 boxExtents = _collider.bounds.extents;
-
-            Collider[] hits = Physics.OverlapBox(
-                boxCenter,
-                boxExtents,
-                transform.rotation,
-                blockLayerMask
-            );
-
-            foreach (var hit in hits)
+            foreach (var col in _colliders)
             {
-                if (hit.gameObject != gameObject)
-                    return true;
+                Vector3 boxCenter = col.bounds.center;
+                Vector3 boxExtents = col.bounds.extents;
+
+                Collider[] hits = Physics.OverlapBox(
+                    boxCenter,
+                    boxExtents,
+                    transform.rotation, 
+                    blockLayerMask
+                );
+
+                foreach (var hit in hits)
+                {
+                    if (hit.gameObject != gameObject)
+                        return true;
+                }
             }
 
             return false;
+        }
+
+
+        public void ShrinkAndDestroyZ()
+        {
+            foreach (var col in _colliders)
+            {
+                col.enabled = false;
+            }
+            
+            float duration = 2f;
+            float forwardMove = 2f;
+            Transform modelTransform = modelHolder.transform; 
+
+            var seq = DOTween.Sequence();
+
+            seq.Join(
+                modelTransform.DOScaleZ(0f, duration)
+                    .SetEase(Ease.InOutQuad)
+            );
+
+            seq.Join(
+                modelTransform.DOLocalMoveZ(modelTransform.localPosition.z + forwardMove, 2f)
+                    .SetEase(Ease.InOutQuad)
+            );
+
+            seq.OnComplete(() => gameObject.SetActive(false));
         }
         
         private Vector3 MouseWorldPosition()

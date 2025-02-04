@@ -180,6 +180,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2109597284522070479, guid: ae7fdf2b038004108bce2664d2755988,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2141661858544442000, guid: ae7fdf2b038004108bce2664d2755988,
         type: 3}
       propertyPath: gridManager
@@ -189,6 +194,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cube_3x3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838794178542443973, guid: ae7fdf2b038004108bce2664d2755988,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7539600285434003004, guid: ae7fdf2b038004108bce2664d2755988,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -857,6 +872,7 @@ GameObject:
   - component: {fileID: 1488467907}
   - component: {fileID: 1488467906}
   - component: {fileID: 1488467905}
+  - component: {fileID: 1488467909}
   m_Layer: 0
   m_Name: RedGate
   m_TagString: Untagged
@@ -950,6 +966,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &1488467909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488467904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87ca0bcf8743465cbeb311227dcc9907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vacuumColor: 1
 --- !u!1 &1522834647
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,6 +991,7 @@ GameObject:
   - component: {fileID: 1522834650}
   - component: {fileID: 1522834649}
   - component: {fileID: 1522834648}
+  - component: {fileID: 1522834652}
   m_Layer: 0
   m_Name: YellowGate
   m_TagString: Untagged
@@ -1055,6 +1085,86 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1522834652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522834647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87ca0bcf8743465cbeb311227dcc9907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vacuumColor: 0
+--- !u!1 &1547284603
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1547284604}
+  - component: {fileID: 1547284605}
+  - component: {fileID: 1547284606}
+  m_Layer: 0
+  m_Name: VacuumDetector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1547284604
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547284603}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 1.55, y: 0.4555, z: -0.069}
+  m_LocalScale: {x: 0.45858207, y: 1, z: 2.4630108}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1661131115}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1547284605
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547284603}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.8609009, y: 1, z: 0.66382223}
+  m_Center: {x: 0.16226019, y: 0, z: 0.25913054}
+--- !u!114 &1547284606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547284603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 596a350afbd54c5582b7b00d47d893db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentVacuum: {fileID: 1661131116}
 --- !u!1 &1652031486
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,6 +1260,7 @@ GameObject:
   - component: {fileID: 1661131114}
   - component: {fileID: 1661131113}
   - component: {fileID: 1661131112}
+  - component: {fileID: 1661131116}
   m_Layer: 0
   m_Name: GreenGate
   m_TagString: Untagged
@@ -1240,9 +1351,23 @@ Transform:
   m_LocalPosition: {x: 4.9614, y: 0.0445, z: 6.3067}
   m_LocalScale: {x: 0.40600702, y: 1, z: 2.1806343}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1547284604}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &1661131116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661131111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87ca0bcf8743465cbeb311227dcc9907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vacuumColor: 2
 --- !u!1001 &1689605139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1253,30 +1378,25 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5319284994385407527, guid: e1884f85e759a42c9af1203066e07713,
         type: 3}
-      propertyPath: m_Constraints
-      value: 126
-      objectReference: {fileID: 0}
-    - target: {fileID: -5319284994385407527, guid: e1884f85e759a42c9af1203066e07713,
-        type: 3}
-      propertyPath: m_Interpolate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -5319284994385407527, guid: e1884f85e759a42c9af1203066e07713,
-        type: 3}
       propertyPath: m_IsKinematic
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2647667025740396500, guid: e1884f85e759a42c9af1203066e07713,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3133382803210855499, guid: e1884f85e759a42c9af1203066e07713,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4227928049601163884, guid: e1884f85e759a42c9af1203066e07713,
         type: 3}
       propertyPath: m_Name
       value: Cube_2x2
       objectReference: {fileID: 0}
-    - target: {fileID: 4227928049601163884, guid: e1884f85e759a42c9af1203066e07713,
+    - target: {fileID: 4979164733749658020, guid: e1884f85e759a42c9af1203066e07713,
         type: 3}
       propertyPath: m_Layer
       value: 6
@@ -1331,26 +1451,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8086303158324383439, guid: e1884f85e759a42c9af1203066e07713,
+    - target: {fileID: 7863627873010883891, guid: e1884f85e759a42c9af1203066e07713,
         type: 3}
-      propertyPath: blockWidth
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8086303158324383439, guid: e1884f85e759a42c9af1203066e07713,
-        type: 3}
-      propertyPath: blockHeight
-      value: 1
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8086303158324383439, guid: e1884f85e759a42c9af1203066e07713,
         type: 3}
       propertyPath: gridManager
       value: 
       objectReference: {fileID: 1820553967}
-    - target: {fileID: 8086303158324383439, guid: e1884f85e759a42c9af1203066e07713,
-        type: 3}
-      propertyPath: blockLayerMask.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1388,6 +1498,11 @@ PrefabInstance:
     - target: {fileID: 222842901143080613, guid: b15c18f80e6274d4b8056bd650639554,
         type: 3}
       propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3660045637545964150, guid: b15c18f80e6274d4b8056bd650639554,
+        type: 3}
+      propertyPath: blockColor
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3660045637545964150, guid: b15c18f80e6274d4b8056bd650639554,

@@ -106,8 +106,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.9320202, y: 1.0000002, z: 1.0373895}
-  m_Center: {x: -0.008751154, y: 1.6007229e-17, z: -0.0036469698}
+  m_Size: {x: 2.8975508, y: 1.0000002, z: 0.9275058}
+  m_Center: {x: 0.0033906978, y: 0, z: -0.0030230014}
 --- !u!65 &3838794178542443973
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -127,8 +127,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0081587, y: 1.0000002, z: 2.8889058}
-  m_Center: {x: -0.016298532, y: -3.2866572e-17, z: -0.006488681}
+  m_Size: {x: 0.927976, y: 1.0000002, z: 2.9205449}
+  m_Center: {x: -0.010197137, y: 0, z: -0.0030834463}
 --- !u!54 &2109597284522070479
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -168,13 +168,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80a42c11cd114d7bac7948ed33c1a152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockColor: 0
   gridManager: {fileID: 0}
+  blockLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
   xClampMin: 0
   xClampMax: 10
   zClampMin: 0
   zClampMax: 10
+  ModelHolder: {fileID: 0}
   blockWidth: 3
   blockHeight: 3
-  blockLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
