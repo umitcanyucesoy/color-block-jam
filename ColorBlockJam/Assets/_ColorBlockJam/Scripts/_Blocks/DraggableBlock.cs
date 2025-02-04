@@ -11,6 +11,7 @@ namespace _ColorBlockJam.Scripts._Blocks
         [Header("----- Drag Settings & Elements ------")]
         [SerializeField] private GridManager gridManager;
         [SerializeField] private Transform modelHolder;
+        [SerializeField] private ParticleSystem shrinkParticle;
         [SerializeField] private LayerMask blockLayerMask;
         [SerializeField] private float xClampMin, xClampMax;
         [SerializeField] private float zClampMin, zClampMax;
@@ -135,20 +136,24 @@ namespace _ColorBlockJam.Scripts._Blocks
             
             
             Transform modelTransform = modelHolder.transform; 
-
+            
             var seq = DOTween.Sequence();
 
+            shrinkParticle.Play();
             seq.Join(
                 modelTransform.DOScaleZ(0f, duration)
                     .SetEase(Ease.InOutQuad)
             );
-
             seq.Join(
                 modelTransform.DOLocalMoveZ(modelTransform.localPosition.z + moveForward, 2f)
                     .SetEase(Ease.InOutQuad)
             );
 
-            seq.OnComplete(() => gameObject.SetActive(false));
+            seq.OnComplete(() =>
+                {
+                    shrinkParticle.Stop();   
+                    gameObject.SetActive(false);
+                });
         }
         
         private Vector3 MouseWorldPosition()
