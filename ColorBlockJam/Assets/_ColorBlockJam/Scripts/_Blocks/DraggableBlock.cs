@@ -1,5 +1,8 @@
 using System;
 using _ColorBlockJam.Scripts._Enums;
+using _ColorBlockJam.Scripts._Level;
+using _ColorBlockJam.Scripts._SFX;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -46,12 +49,17 @@ namespace _ColorBlockJam.Scripts._Blocks
 
         private void OnMouseDown()
         {
+            if (LevelManager.Instance.gameEnded) return;
+            
+            SoundManager.Instance.PlaySound(SoundManager.SoundType.Drag);
             _lastValidPosition = transform.position;
             _offset = transform.position - MouseWorldPosition();
         }
 
         private void OnMouseDrag()
         {
+            if (LevelManager.Instance.gameEnded) return;
+            
             Vector3 wantedPos = MouseWorldPosition() + _offset;
             wantedPos = new Vector3(
                 Mathf.Clamp(wantedPos.x, xClampMin, xClampMax),
@@ -87,8 +95,7 @@ namespace _ColorBlockJam.Scripts._Blocks
                 float snappedZ = Mathf.Round((relativePos.z - snapOffsetZ) / cellSize) * cellSize + snapOffsetZ;
 
                 Vector3 targetPos = new Vector3(gridOrigin.x + snappedX, transform.position.y, gridOrigin.z + snappedZ);
-
-
+                
                 _tween?.Kill();
                 _tween = transform.DOMove(targetPos, 0.3f).SetEase(Ease.OutQuad).OnComplete(() =>
                 {
@@ -134,12 +141,12 @@ namespace _ColorBlockJam.Scripts._Blocks
                 col.enabled = false;
             }
             
-            
             Transform modelTransform = modelHolder.transform; 
             
             var seq = DOTween.Sequence();
-
+            
             shrinkParticle.Play();
+            SoundManager.Instance.PlaySound(SoundManager.SoundType.Vacuum);
             seq.Join(
                 modelTransform.DOScaleZ(0f, duration)
                     .SetEase(Ease.InOutQuad)
@@ -153,6 +160,7 @@ namespace _ColorBlockJam.Scripts._Blocks
                 {
                     shrinkParticle.Stop();   
                     gameObject.SetActive(false);
+                    SoundManager.Instance.StopSound(SoundManager.SoundType.Vacuum);
                 });
         }
         

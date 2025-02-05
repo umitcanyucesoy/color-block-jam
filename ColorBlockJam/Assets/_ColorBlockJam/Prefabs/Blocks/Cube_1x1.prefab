@@ -54,8 +54,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.9614935, y: 1.0000001, z: 0.95516944}
-  m_Center: {x: 0.0011812306, y: 0, z: 0.0017104127}
+  m_Size: {x: 0.9373737, y: 1.0000001, z: 0.92813784}
+  m_Center: {x: 0.0035790922, y: 0, z: 0.0020318243}
 --- !u!114 &3660045637545964150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,6 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridManager: {fileID: 0}
   modelHolder: {fileID: 0}
+  shrinkParticle: {fileID: 0}
   blockLayerMask:
     serializedVersion: 2
     m_Bits: 0
